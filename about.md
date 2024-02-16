@@ -4,6 +4,7 @@ title: About
 permalink: /about
 ---
 
-Hi, Write an awesome description about your blog here.  
-Feel free to make it a bit more interesting by adding a picture or two.  
-Only limit here is your creativity and imagination. Unleash them with full force.  
+Hi, I'm Josh Code.  
+I love art, history, and clasical music. 
+I work for a Baroque music non-profit and substitute teach elementary school art class. 
+Data tells a story, and I have stories to tell.
