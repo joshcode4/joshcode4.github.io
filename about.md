@@ -4,9 +4,9 @@ title: About
 permalink: /about
 ---
 
-Hi, I'm Josh Code. 
+Hi, I'm Josh Code, and my mind is equal parts engineer and artist. 
 
-It's been said that our names determine our fate in life, and it's no coincidence that I was born to code. Since I was little, I've been told that my mind is equal parts engineer and artist. I love vintage maps and the Sunday crossword, yet I work for a Baroque music non-profit and substitute teach elementary school art class. I thrive in finding the beauty in the gritty, technical puzzles of data.
+I love vintage maps and the Sunday crossword, yet I work for a Baroque music non-profit and substitute teach elementary school art class. I thrive in finding the beauty in the gritty, technical puzzles of data.
  
 I'm deeply passionate about data-driven storytelling. For my undergraduate capstone I produced a data-driven urban history project about Bunker Hill, a Los Angeles neighborhood lost to urban development. By using Python to scrape demographic information from old census data, I was able to paint a picture of both the demographics of the neighorbood, as well as individual stories from Bunker Hill residents.
 
