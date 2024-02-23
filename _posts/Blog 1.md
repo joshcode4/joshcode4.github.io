@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hello World
+title: Scraping book sale data using Python
 categories: [content, demo]
 ---
 
