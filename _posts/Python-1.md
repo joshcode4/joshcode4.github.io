@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Scraping book sale data using Python
-categories: [content, demo]
+categories: [p]
 ---
 
 Test test test. 
