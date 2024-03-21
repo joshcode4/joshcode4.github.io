@@ -21,3 +21,27 @@ where work_id<=1
 group by census_year;
 {% endhighlight %}
 
+How did the number of employed men and employed women change from 1930-1940? What was the average wage gap between the sexes in each year?
+
+<img width="703" alt="Screenshot 2024-03-21 at 1 51 42 PM" src="https://github.com/joshcode4/joshcode4.github.io/assets/160261781/a2bd3dfe-5912-4eb3-be06-1d581b59d5bc">
+
+{% highlight c %}
+select census_year,
+
+count(distinct 
+case when work_id<=1 and sex_id=0 then resident_id end) employed_men,
+count(distinct 
+case when work_id<=1 and sex_id=1 then resident_id end) employed_women,
+count(distinct
+case when work_id=2 and sex_id=0 then resident_id end) unemployed_men, 
+count(distinct
+case when work_id=2 and sex_id=1 then resident_id end) unemployed_women, 
+
+concat('$', round((sum(case when sex_id=0 then income_received end)/count(distinct 
+case when work_id<=1 and sex_id=0 then resident_id end)),2)) avg_income_men,
+concat('$', round((sum(case when sex_id=1 then income_received end)/count(distinct 
+case when work_id<=1 and sex_id=1 then resident_id end)),2)) avg_income_women
+
+from census_data_final c
+group by census_year;
+{% endhighlight %}
