@@ -19,5 +19,5 @@ concat('$', round((sum(c.income_received)/count(distinct c.resident_id)),2)) as 
 from census_data_final c
 where work_id<=1
 group by census_year;
-{% end highlight %}
+{% endhighlight %}
 
