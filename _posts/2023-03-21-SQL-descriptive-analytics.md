@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Running analytics on a large dataset using Python
+title: Using SQL to run descriptive analytics on census data
 categories: [p]
 ---
 While in college, I was hired by the Bunker Hill Refrain project to run data analytics on census data in order to learn about the demographics of who lived in Bunker Hill, a Los Angeles neighborhood that was razed for freeway construction and urban renewal. 
