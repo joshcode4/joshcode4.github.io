@@ -1,5 +1,8 @@
-
-
+---
+layout: post
+title: Running analytics on a large dataset using Python
+categories: [p]
+---
 While in college, I was hired by the Bunker Hill Refrain project to run data analytics on census data in order to learn about the demographics of who lived in Bunker Hill, a Los Angeles neighborhood that was razed for freeway construction and urban renewal. 
 The purpose of the Bunker Hill Refrain project was to synthesize oral histories with data analysis. Before applying my data science skills, I conducted multiple interviews with former residents and their children in order to get a qualitative picture of what life was like in this neighborhood. 
 
