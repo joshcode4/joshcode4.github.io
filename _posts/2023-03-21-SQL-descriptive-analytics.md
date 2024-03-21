@@ -9,7 +9,7 @@ The purpose of the Bunker Hill Refrain project was to synthesize oral histories 
 
 My next step was to conduct data analysis using SQL. I went to the city records office and scanned old census records, then I input them into excel, then from there into MySQL. I chose SQL to run descriptive analytics on the data because of its ability to analyze and manipulate many columns at once. 
 
-What was the average income of employed residents in each census year?
+**What was the average income of employed residents in each census year?**
 
 <img width="155" alt="Screenshot 2024-03-21 at 1 51 59 PM" src="https://github.com/joshcode4/joshcode4.github.io/assets/160261781/618e382e-736d-4ce5-a090-dc9723dbb687">
 
@@ -21,7 +21,7 @@ where work_id<=1
 group by census_year;
 {% endhighlight %}
 
-How did the number of employed men and employed women change from 1930-1940? What was the average wage gap between the sexes in each year?
+**How did the number of employed men and employed women change from 1930-1940? What was the average wage gap between the sexes in each year?**
 
 <img width="703" alt="Screenshot 2024-03-21 at 1 51 42 PM" src="https://github.com/joshcode4/joshcode4.github.io/assets/160261781/a2bd3dfe-5912-4eb3-be06-1d581b59d5bc">
 
