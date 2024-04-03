@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using SQL to run descriptive analytics on census data
+title: Using SQL to run descriptive analytics on census data, part 1
 categories: [p]
 ---
 
