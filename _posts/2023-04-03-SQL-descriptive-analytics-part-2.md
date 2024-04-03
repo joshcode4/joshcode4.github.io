@@ -13,4 +13,24 @@ Continuing my analysis of this Los Angeles census dataset, I used SQL to run que
 1940,2,2,58,67,$1075,$12.82
 ploading rent_vs_own_by_year.csv…]()
 
+{% highlight c %}
+select census_year,
+
+count(distinct 
+case when owned_or_rented_id=1 and sex_id=0 then resident_id end) homeowner_men,
+count(distinct 
+case when owned_or_rented_id=1 and sex_id=1 then resident_id end) homeowner_women,
+count(distinct 
+case when owned_or_rented_id!=1 and sex_id=0 then resident_id end) renter_men,
+count(distinct 
+case when owned_or_rented_id!=1 and sex_id=1 then resident_id end) renter_women,
+
+concat('$', round((sum(case when owned_or_rented_id=1 then value_or_rent end)/count(distinct 
+case when (owned_or_rented_id=1 and value_or_rent is NOT NULL) then resident_id end)),2)) avg_home_value,
+concat('$', round((sum(case when owned_or_rented_id=0 then value_or_rent end)/count(distinct 
+case when (owned_or_rented_id=0 and value_or_rent is NOT NULL) then resident_id end)),2)) avg_rent
+
+from census_data_final c
+group by census_year;
+{% endhighlight %}
 
