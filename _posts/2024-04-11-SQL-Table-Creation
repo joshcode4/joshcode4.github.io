@@ -1,1 +1,8 @@
+---
+layout: post
+title: Creating Tables in MySQL
+categories: [p]
+---
+
+In order to organize and run analytics on this Los Angeles Census Data, I created a parent table and several child tables in SQL. I then used the table import wizard to import the data from Excel into MySQL. 
 
