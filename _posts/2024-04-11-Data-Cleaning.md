@@ -4,7 +4,7 @@ title: Cleaning a dataset using Python
 categories: [p]
 ---
 
-Because the raw census data in my research project was scanned from old paper forms, the resultant dataset was pretty messy. I used Python to clean the data, converting two-response columns to binary integers and standardizing the values in each string column. I also used MySQL Connector to port in the key tables I created in Python into MySQL.
+Because the raw census data in my research project was scanned from old paper forms, the resultant dataset was pretty messy. I used Python to clean the data, converting two-response columns to binary integers and standardizing the values in each string column. I also used MySQL Connector to port in the key tables I created in Python into MySQL. Finally, I joined the primary and foreign keys to the main dataset using Python commands, thus creating a new dataset containing only integer values.
 
 {% highlight c %}
 import mysql.connector
@@ -72,6 +72,8 @@ x.loc[(x['worker_type'].str.contains('O', case=False, na=False)) | (x['worker_ty
 x.loc[(x['worker_type'].str.contains('H', case=False, na=False)), 'worker_type']='H'
 x.loc[(x['had_job']==1), 'worker_type']='N'
 
+#Key Tables
+#Worker Types
 wk = x['worker_type'].to_frame()
 wk = wk.drop_duplicates(ignore_index=True)
 wk.insert(0, 'work_id', range(1, 1+len(wk)))
@@ -80,17 +82,17 @@ conditions = [wk['worker_type']=='X', wk['worker_type']=='U', wk['worker_type']=
 categories = ['unknown', 'unable', 'employed', 'homemaker', 'student']
 wk['worker_description'] = np.select(conditions, categories, default='Unknown')
 
-
-#Key Tables
-
+#Resident Key
 r = x[['first_name', 'last_name', 'sex', 'race']]
 r.insert(0, 'resident_id', range(1, 1+len(r)))
 
+#Street Key
 st = x['street'].to_frame()
 st = st.drop_duplicates(ignore_index=True)
 
 st.insert(0, 'street_id', range(1, 1+len(st)))
 
+#Marital Status Key
 m = x['marital_status'].to_frame()
 m = m.drop_duplicates(ignore_index=True)
 
@@ -100,6 +102,7 @@ conditions = [m['marital_status']=='S', m['marital_status']=='M', m['marital_sta
 categories = ['Single', 'Married', 'Widowed', 'Divorced', 'Unknown']
 m['description'] = np.select(conditions, categories, default='Unknown')
 
+#Household Title Key
 h = x['relationship_to_household'].to_frame()
 h = h.drop_duplicates(ignore_index=True)
 h.insert(0, 'household_id', range(1, 1+len(h)))
@@ -113,15 +116,13 @@ cursor.execute('create database census')
 
 engine = create_engine('mysql+mysqlconnector://root:Purecolour1453!@localhost/census')
 
+r.to_sql('resident_key', con=engine, if_exists='append', index=False)
 wk.to_sql('work_key', con=engine, if_exists='append', index=False)
-
 st.to_sql('street_key', con=engine, if_exists='append', index=False)
-
 m.to_sql('marital_key', con=engine, if_exists='append', index=False)
-
 h.to_sql('household_key', con=engine, if_exists='append', index=False)
 
-
+#Now let's 'join' the foreign keys ID columns to the parent table
 a = x.merge(wk[['worker_type','work_id']], how='left', on=['worker_type'])
 a.drop(columns=['worker_type'])
 
