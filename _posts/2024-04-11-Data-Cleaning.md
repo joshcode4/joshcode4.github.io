@@ -114,7 +114,7 @@ cursor = connection.cursor()
 cursor.execute('drop database if exists census')
 cursor.execute('create database census')
 
-engine = create_engine('mysql+mysqlconnector://root:Purecolour1453!@localhost/census')
+engine = create_engine('mysql+mysqlconnector://root:Password!@localhost/census')
 
 r.to_sql('resident_key', con=engine, if_exists='append', index=False)
 wk.to_sql('work_key', con=engine, if_exists='append', index=False)
